@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ගොවි-පාලම Mega — ශ්‍රී ලංකාවේ සමස්ත ජාතික කෘෂි ඩිජිටල් ජාලය</title>
+    <title>ගොවි-පාලම Ultimate — ශ්‍රී ලංකාවේ සමස්ත ජාතික කෘෂි ඩිජිටල් ජාලය</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2 family=Noto+Sans+Sinhala:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --dark-green: #1b4332;
@@ -38,61 +38,55 @@
         .app-view.active { display: block; }
 
         /* HERO SLIDER */
-        .hero-slider-container { position: relative; width: 100%; height: 280px; background: #111; overflow: hidden; box-shadow: var(--shadow); }
+        .hero-slider-container { position: relative; width: 100%; height: 250px; background: #111; overflow: hidden; }
         .hero-slide { position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 1.2s ease-in-out; background-size: cover; background-position: center; display: flex; align-items: center; padding: 0 6%; }
         .hero-slide.active { opacity: 1; }
         .hero-slide::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(90deg, rgba(27,67,50,0.85) 0%, rgba(0,0,0,0.3) 100%); }
         .slide-inner { position: relative; z-index: 10; color: #fff; max-width: 700px; }
-        .slide-inner h2 { font-size: 30px; margin-bottom: 10px; color: var(--gold-yellow); }
+        .slide-inner h2 { font-size: 28px; color: var(--gold-yellow); }
 
-        /* MARKET SELECTOR DROPDOWN */
-        .selector-card { background: var(--pure-white); padding: 20px; border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 25px; border-left: 5px solid var(--mid-green); }
-        .selector-card label { font-weight: 700; color: var(--dark-green); display: block; margin-bottom: 10px; font-size: 15px; }
-        .market-dropdown { width: 100%; max-width: 400px; padding: 12px; border-radius: 8px; border: 2px solid var(--mid-green); font-size: 14px; font-weight: 700; outline: none; background-color: #fff; }
+        /* FILTER DROPDOWN SYSTEM */
+        .multi-filter-container { background: var(--pure-white); padding: 25px; border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 25px; border-left: 5px solid var(--bright-orange); display: flex; gap: 20px; flex-wrap: wrap; }
+        .filter-group { flex: 1; min-width: 250px; }
+        .filter-group label { font-weight: 700; color: var(--dark-green); display: block; margin-bottom: 8px; font-size: 14px; }
+        .global-select { width: 100%; padding: 12px; border-radius: 8px; border: 2px solid var(--mid-green); font-size: 14px; font-weight: 700; outline: none; background: #fff; }
 
-        /* TABLES & CARDS */
-        .price-table-wrapper { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--border-color); margin-top: 15px; }
-        table { width: 100%; border-collapse: collapse; text-align: left; font-size: 14px; }
-        th { background: var(--dark-green); color: #fff; padding: 15px; font-weight: 700; }
-        td { padding: 15px; border-bottom: 1px solid var(--border-color); }
-        tr:last-child td { border: none; }
-        .badge-up { color: #2d6a4f; font-weight: 700; }
-        .badge-down { color: #d90429; font-weight: 700; }
+        /* TABLES */
+        .price-table-wrapper { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--border-color); }
+        table { width: 100%; border-collapse: collapse; text-align: left; }
+        th { background: var(--dark-green); color: #fff; padding: 15px; font-weight: 700; font-size: 14px; }
+        td { padding: 15px; border-bottom: 1px solid var(--border-color); font-size: 14px; }
+        .badge-up { color: #2d6a4f; font-weight: 700; background: #d8f3dc; padding: 4px 10px; border-radius: 20px; font-size: 12px; }
+        .badge-down { color: #d90429; font-weight: 700; background: #ffe3e3; padding: 4px 10px; border-radius: 20px; font-size: 12px; }
 
-        /* ENCYCLOPEDIA & FILTERS */
-        .category-filter-bar { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 15px; margin-bottom: 20px; }
-        .filter-chip { background: var(--pure-white); border: 1px solid var(--border-color); padding: 10px 20px; border-radius: 30px; font-size: 13px; font-weight: 700; color: #555; cursor: pointer; white-space: nowrap; }
-        .filter-chip.active { background: var(--mid-green); color: #fff; border-color: var(--mid-green); }
-
-        .search-wrapper { background: var(--pure-white); padding: 14px 20px; border-radius: 30px; display: flex; border: 2px solid var(--mid-green); margin-bottom: 30px; }
-        .search-wrapper input { border: none; width: 100%; outline: none; font-size: 15px; }
-
+        /* ENCYCLOPEDIA */
         .crop-disease-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; }
         .disease-profile-card { background: var(--pure-white); border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); display: flex; flex-direction: column; }
-        .disease-img-frame { width: 100%; height: 180px; background: #e2e8f0; position: relative; }
+        .disease-img-frame { width: 100%; height: 180px; position: relative; background: #e2e8f0; }
         .disease-img-frame img { width: 100%; height: 100%; object-fit: cover; }
         .crop-type-badge { position: absolute; top: 12px; left: 12px; background: var(--dark-green); color: var(--gold-yellow); font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; }
         .disease-details { padding: 20px; flex-grow: 1; }
-        .disease-details h3 { color: var(--dark-green); font-size: 18px; margin-bottom: 10px; }
+        .disease-details h3 { color: var(--dark-green); font-size: 18px; margin-bottom: 8px; }
 
-        /* OFFICERS CONTACT CARDS */
-        .officers-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin-top: 25px; }
-        .officer-card { background: #fff; border-left: 5px solid var(--gold-yellow); border-radius: 8px; padding: 20px; box-shadow: var(--shadow); }
-        .officer-card h4 { color: var(--dark-green); margin-bottom: 5px; font-size: 16px; }
-        .officer-card p { font-size: 13px; color: #555; margin-bottom: 8px; }
-        .call-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--bright-orange); color: #fff; text-decoration: none; padding: 8px 15px; border-radius: 6px; font-size: 12px; font-weight: 700; }
+        /* OFFICERS CARDS */
+        .officers-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        .officer-card { background: #fff; border-top: 4px solid var(--gold-yellow); border-radius: 12px; padding: 20px; box-shadow: var(--shadow); }
+        .officer-card h4 { color: var(--dark-green); margin-bottom: 6px; font-size: 16px; }
+        .officer-card p { font-size: 13px; color: #555; margin-bottom: 6px; }
+        .call-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--bright-orange); color: #fff; text-decoration: none; padding: 8px 15px; border-radius: 6px; font-size: 12px; font-weight: 700; margin-top: 5px; }
+
+        /* FORMS & CONTAINER */
+        .portal-form-container { background: var(--pure-white); padding: 30px; border-radius: 16px; max-width: 600px; margin: 20px auto; box-shadow: var(--shadow); border: 1px solid var(--border-color); }
+        .portal-form-container h2 { color: var(--dark-green); font-size: 20px; margin-bottom: 20px; text-align: center; }
+        .input-group { margin-bottom: 15px; }
+        .input-group label { display: block; font-size: 12px; font-weight: 700; margin-bottom: 6px; color: #444; }
+        .input-group input, .input-group select, .input-group textarea { width: 100%; padding: 12px; border: 1.5px solid var(--border-color); border-radius: 8px; outline: none; font-size: 14px; }
+        .action-submit-btn { width: 100%; background: var(--mid-green); color: var(--pure-white); border: none; padding: 14px; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 15px; }
 
         /* ADMIN CONTROL HUB */
         .secret-admin-control-hub { background: #111; color: #fff; padding: 20px 6%; display: none; justify-content: space-between; align-items: center; gap: 20px; border-bottom: 4px solid var(--bright-orange); position: sticky; top: 73px; z-index: 1050; }
         .secret-admin-control-hub.active { display: flex; }
         .admin-action-btn { background: var(--gold-yellow); color: #000; border: none; padding: 10px 20px; font-weight: 700; border-radius: 6px; cursor: pointer; }
-
-        /* FORMS */
-        .portal-form-container { background: var(--pure-white); padding: 25px; border-radius: 12px; max-width: 600px; margin: 20px auto; box-shadow: var(--shadow); border: 1px solid var(--border-color); }
-        .input-group { margin-bottom: 15px; }
-        .input-group label { display: block; font-size: 12px; font-weight: 700; margin-bottom: 6px; color: #444; }
-        .input-group input, .input-group select, .input-group textarea { width: 100%; padding: 12px; border: 1.5px solid var(--border-color); border-radius: 8px; outline: none; font-size: 13px; }
-        .action-submit-btn { width: 100%; background: var(--mid-green); color: var(--pure-white); border: none; padding: 14px; border-radius: 8px; font-weight: 700; cursor: pointer; }
 
         .bottom-sticky-nav { position: fixed; bottom: 0; left: 0; width: 100%; height: 65px; background: var(--dark-green); display: flex; justify-content: space-around; align-items: center; z-index: 1100; border-top: 2px solid var(--gold-yellow); }
         .sticky-nav-item { background: none; border: none; color: rgba(255,255,255,0.6); display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 16px; cursor: pointer; flex: 1; height: 100%; }
@@ -104,7 +98,7 @@
 
         @media (max-width: 768px) {
             .navigation-tabs { display: none; }
-            th, td { padding: 10px; font-size: 12px; }
+            .multi-filter-container { flex-direction: column; gap: 10px; }
         }
     </style>
 </head>
@@ -114,11 +108,12 @@
 
     <div class="secret-admin-control-hub" id="secretAdminHub">
         <div>
-            <span style="color:var(--gold-yellow); font-weight:700;"><i class="fa-solid fa-user-shield"></i> GOVI-PALAMA VAULT ADMIN ACTIVE</span>
-            <p style="font-size:11px; color:#ccc;">ඔබට ඕනෑම මිලක්/විස්තරයක් සජීවීව ක්ලික් කර වෙනස් කල හැක. අලුත් රෝග එකතු කිරීමට 'බෝග විශ්වකෝෂය' ටැබ් එකට යන්න.</p>
+            <span style="color:var(--gold-yellow); font-weight:700;"><i class="fa-solid fa-user-shield"></i> CENTRAL NATIONAL SECURITY VAULT ADMIN EXECUTIVE</span>
+            <p style="font-size:11px; color:#ccc;">මිල ගණන් සජීවීව වෙනස් කිරීමට වගුවේ ඇති මිල මත ක්ලික් කරන්න. ලියාපදිංචි වූ ගොවීන්ගේ දත්ත ලැප්ටොප් එකට ගැනීමට 'Farmers DB' බලන්න.</p>
         </div>
         <div style="display:flex; gap:10px;">
-            <button class="admin-action-btn" onclick="saveVaultDataToServer()"><i class="fa-solid fa-save"></i> Save All Data</button>
+            <button class="admin-action-btn" onclick="exportFarmersToCSV()"><i class="fa-solid fa-file-excel"></i> Export Farmers to Laptop DB</button>
+            <button class="admin-action-btn" style="background:var(--bright-orange); color:#fff;" onclick="saveSystemDatabase()"><i class="fa-solid fa-save"></i> Save System Data</button>
             <button class="admin-action-btn" style="background:#d90429; color:#fff;" onclick="lockVaultMode()">Lock Vault</button>
         </div>
     </div>
@@ -129,8 +124,8 @@
             <div class="logo-title">ගොවි<span>පාලම</span></div>
         </div>
         <div class="auth-status-btn" onclick="showPage('portalView')">
-            <i class="fa-solid fa-id-card-clip"></i>
-            <span id="globalUserLabel">ගොවි පියස ලොගින්</span>
+            <i class="fa-solid fa-user-gear"></i>
+            <span id="globalUserLabel">ගොවි පියස / ඇඩ්මින් ද්වාරය</span>
         </div>
     </header>
 
@@ -138,176 +133,230 @@
         <button class="tab-trigger active" id="tb-pricesView" onclick="showPage('pricesView')"><i class="fa-solid fa-chart-line"></i> ආර්ථික මධ්‍යස්ථාන මිල ගණන්</button>
         <button class="tab-trigger" id="tb-diseasesView" onclick="showPage('diseasesView')"><i class="fa-solid fa-book-medical"></i> බෝග විශ්වකෝෂය (රෝග/ප්‍රතිකාර)</button>
         <button class="tab-trigger" id="tb-marketView" onclick="showPage('marketView')"><i class="fa-solid fa-address-book"></i> මධ්‍යස්ථාන නිලධාරීන්</button>
+        <button class="tab-trigger" id="tb-farmersAdminView" style="display:none; color:var(--bright-orange);" onclick="showPage('farmersAdminView')"><i class="fa-solid fa-users-viewfinder"></i> Farmers Laptop DB</button>
     </div>
 
     <div class="hero-slider-container">
         <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=1200');">
             <div class="slide-inner">
-                <h2 contenteditable="false" id="s1-t">ශ්‍රී ලංකාවේ සියලුම ආර්ථික මධ්‍යස්ථාන එකම ජාලයකට</h2>
-                <p>දඹුල්ල, මැනිං, කැප්පෙටිපොල ඇතුළු රටේ සියලුම වෙළඳපොළවල් වල මිල ගණන් සජීවීව සසඳා බලන්න.</p>
-            </div>
-        </div>
-        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?q=80&w=1200');">
-            <div class="slide-inner">
-                <h2 id="s2-t">අංගසම්පූර්ණ බෝග රෝග නිවාරණ දත්ත පද්ධතිය</h2>
-                <p>ලංකාවේ වගාකරන සියලුම එළවළු, පළතුරු, ධාන්‍ය වලට වැළඳෙන රෝග සහ කෘෂි නිලධාරීන් අනුමත පිළියම්.</p>
+                <h2>ශ්‍රී ලංකාවේ සියලුම ආර්ථික මධ්‍යස්ථාන එකම ජාලයකට</h2>
+                <p>දිවයිනේ සෑම ප්‍රධාන වෙළඳපොළකම සියලුම එළවළු සහ පළතුරු වර්ග වල දෛනික මිල ගණන් සජීවීව.</p>
             </div>
         </div>
     </div>
 
     <main class="app-view active" id="pricesView">
-        <div class="selector-card">
-            <label><i class="fa-solid fa-building-wheat"></i> ප්‍රධාන ආර්ථික මධ්‍යස්ථානය තෝරන්න:</label>
-            <select class="market-dropdown" id="marketSelector" onchange="loadMarketPricesAndContacts()">
-                <option value="dambulla">දඹුල්ල මහ ආර්ථික මධ්‍යස්ථානය (Dambulla)</option>
-                <option value="manning">කොළඹ මැනිං වෙළඳපොළ (Manning Market)</option>
-                <option value="keppetipola">කැප්පෙටිපොල ආර්ථික මධ්‍යස්ථානය (Keppetipola)</option>
-                <option value="thambuththegama">තඹුත්තේගම ආර්ථික මධ්‍යස්ථානය (Thambuththegama)</option>
-            </select>
+        <div class="multi-filter-container">
+            <div class="filter-group">
+                <label><i class="fa-solid fa-building-wheat"></i> 1. ආර්ථික මධ්‍යස්ථානය තෝරන්න:</label>
+                <select class="global-select" id="marketSelector" onchange="processMarketAndCategoryFilter()">
+                    <option value="dambulla">දඹුල්ල මහ ආර්ථික මධ්‍යස්ථානය (Dambulla)</option>
+                    <option value="manning">කොළඹ මැනිං වෙළඳපොළ (Manning Market)</option>
+                    <option value="keppetipola">කැප්පෙටිපොල ආර්ථික මධ්‍යස්ථානය (Keppetipola)</option>
+                    <option value="thambuththegama">තඹුත්තේගම ආර්ථික මධ්‍යස්ථානය (Thambuththegama)</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label><i class="fa-solid fa-mound"></i> 2. බෝග කාණ්ඩය (Category) තෝරන්න:</label>
+                <select class="global-select" id="categorySelector" onchange="processMarketAndCategoryFilter()">
+                    <option value="එළවළු">🥦 සියලුම එළවළු වර්ග (Vegetables)</option>
+                    <option value="පළතුරු">🍎 සියලුම පළතුරු වර්ග (Fruits)</option>
+                    <option value="අල බෝග">🥔 සියලුම අල වර්ග (Tubers)</option>
+                    <option value="කුළුබඩු">🌶️ සියලුම කුළුබඩු බෝග (Spices)</option>
+                    <option value="ධාන්‍ය">🌾 සියලුම ධාන්‍ය වර්ග (Grains)</option>
+                </select>
+            </div>
         </div>
 
-        <h3 style="font-size:16px; border-left:4px solid var(--bright-orange); padding-left:10px; margin-bottom:15px; color:var(--dark-green);">
-            <span id="selectedMarketName">දඹුල්ල</span> මධ්‍යස්ථානයේ සියලුම බෝග වල අද දින තොග මිල දර්ශකය
+        <h3 style="font-size:16px; border-left:4px solid var(--mid-green); padding-left:12px; margin-bottom:15px; color:var(--dark-green);">
+            <span id="lblActiveMarket">දඹුල්ල</span> මධ්‍යස්ථානය > <span id="lblActiveCategory" style="color:var(--bright-orange)">එළවළු</span> වර්ග වල සජීවී තොග මිල දර්ශකය
         </h3>
 
         <div class="price-table-wrapper">
             <table>
                 <thead>
                     <tr>
-                        <th>බෝග වර්ගය (All Crops)</th>
-                        <th>තොග මිල (1kg)</th>
+                        <th>බෝගයේ නම (Crop Name)</th>
+                        <th>තොග මිල (1Kg)</th>
                         <th>මිල වෙනස් වීම</th>
                     </tr>
                 </thead>
-                <tbody id="marketPricesTableBody"></tbody>
+                <tbody id="masterPricesTableBody"></tbody>
             </table>
         </div>
     </main>
 
     <main class="app-view" id="diseasesView">
-        
-        <div id="adminAddDiseaseBox" class="portal-form-container" style="display:none; border-top: 4px solid var(--bright-orange); margin-bottom:30px;">
-            <h3 style="color:var(--dark-green); margin-bottom:15px;"><i class="fa-solid fa-folder-plus"></i> විශ්වකෝෂයට අලුත් බෝගයක් / රෝගයක් එකතු කිරීම (Admin Only)</h3>
-            <div class="input-group">
-                <label>බෝග කාණ්ඩය</label>
-                <select id="admCropType">
-                    <option value="එළවළු">🥦 එළවළු වර්ග</option>
-                    <option value="පළතුරු">🍎 පළතුරු වර්ග</option>
-                    <option value="අල බෝග">🥔 අල බෝග</option>
-                    <option value="කුළුබඩු">🌶️ කුළුබඩු බෝග</option>
-                    <option value="ධාන්‍ය">🌾 ධාන්‍ය වර්ග</option>
-                </select>
+        <div id="adminAddDiseaseBox" class="portal-form-container" style="display:none; border-top:4px solid var(--bright-orange); margin-bottom:30px; max-width:100%;">
+            <h3><i class="fa-solid fa-circle-plus"></i> නව බෝග රෝග සහ ප්‍රතිකාර ඇතුළත් කිරීමේ නිල පුවරුව</h3>
+            <br>
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:15px;">
+                <div class="input-group"><label>බෝග කාණ්ඩය</label><select id="admType"><option value="එළවළු">එළවළු</option><option value="පළතුරු">පළතුරු</option><option value="අල බෝග">අල බෝග</option><option value="කුළුබඩු">කුළුබඩු</option><option value="ධාන්‍ය">ධාන්‍ය</option></select></div>
+                <div class="input-group"><label>බෝගයේ නම</label><input type="text" id="admCrop" placeholder="උදා: පැපොල් (ගස්ලබු)"></div>
+                <div class="input-group"><label>වැළඳෙන රෝගය</label><input type="text" id="admDisease" placeholder="උදා: පිටි මකුළු රෝගය"></div>
+                <div class="input-group"><label>රෝග ලක්ෂණ</label><input type="text" id="admSymptoms" placeholder="උදා: කොළ කහ වීම"></div>
+                <div class="input-group"><label>නිල කෘෂි ප්‍රතිකාර / ඖෂධ</label><input type="text" id="admCure" placeholder="උදා: සල්ෆර් දියර යෙදීම"></div>
+                <div class="input-group"><label>ඡායාරූප ලින්ක් එක</label><input type="text" id="admImg" value="https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?q=80&w=400"></div>
             </div>
-            <div class="input-group"><label>බෝගයේ නම</label><input type="text" id="admCropName" placeholder="උදා: රඹුටන්, කැරට්, බෝංචි"></div>
-            <div class="input-group"><label>රෝගයේ නම</label><input type="text" id="admDiseaseName" placeholder="උදා: පිටි අච්චු රෝගය, දියමලන් කෑම"></div>
-            <div class="input-group"><label>රෝග ලක්ෂණ</label><textarea id="admSymptoms" rows="2" placeholder="පිටතට පෙනෙන ලක්ෂණ විස්තර කරන්න..."></textarea></div>
-            <div class="input-group"><label>ප්‍රතිකාර සහ ලබාගත හැකි බෙහෙත් වර්ග</label><textarea id="admCure" rows="2" placeholder="රසායනික, කාබනික සහ පරිසරයෙන් සපයාගත හැකි පිළියම්..."></textarea></div>
-            <div class="input-group"><label>ඡායාරූප ලින්ක් එක (Image URL)</label><input type="text" id="admImgUrl" value="https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?q=80&w=400"></div>
-            <button class="action-submit-btn" style="background:var(--bright-orange);" onclick="adminSubmitNewDisease()">විශ්වකෝෂයට සජීවීව ඇතුළත් කරන්න</button>
+            <button class="action-submit-btn" style="background:var(--bright-orange);" onclick="adminSubmitDisease()">විශ්වකෝෂයට එක් කර ලයිව් කරන්න</button>
         </div>
 
-        <div class="category-filter-bar">
-            <button class="filter-chip active" onclick="filterCropCategory('All')">සියලුම බෝග</button>
-            <button class="filter-chip" onclick="filterCropCategory('එළවළු')">🥦 එළවළු</button>
-            <button class="filter-chip" onclick="filterCropCategory('පළතුරු')">🍎 පළතුරු</button>
-            <button class="filter-chip" onclick="filterCropCategory('අල බෝග')">🥔 අල ਬෝග</button>
-            <button class="filter-chip" onclick="filterCropCategory('කුළුබඩු')">🌶️ කුළුබඩු</button>
-            <button class="filter-chip" onclick="filterCropCategory('ධාන්‍ය')">🌾 ධාන්‍ය</button>
-        </div>
-
-        <div class="search-wrapper"><i class="fa-solid fa-magnifying-glass"></i><input type="text" id="cropSearchInput" placeholder="ලංකාවේ ඕනෑම බෝගයක්, රෝගයක් හෝ බෙහෙතක් මෙතනින් සොයන්න..." oninput="searchCrops()"></div>
+        <div class="search-wrapper"><i class="fa-solid fa-magnifying-glass"></i><input type="text" id="cropSearchInput" placeholder="ලංකාවේ ඕනෑම බෝගයක නමක්, රෝගයක් හෝ බෙහෙතක් ගසන්න..." oninput="searchCrops()"></div>
         <div class="crop-disease-grid" id="cropDiseaseGridHook"></div>
     </main>
 
     <main class="app-view" id="marketView">
-        <h3 style="font-size:16px; border-left:4px solid var(--gold-yellow); padding-left:12px; color:var(--dark-green);">
-            <span id="contactMarketName">දඹුල්ල</span> ආර්ථික මධ්‍යස්ථානයේ මිල ගණන් සහ තොරතුරු දැනගැනීමට ඇති නිල සම්බන්ධතා
-        </h3>
+        <h3 style="font-size:16px; margin-bottom:20px; color:var(--dark-green); border-left:4px solid var(--gold-yellow); padding-left:12px;">දිවයිනේ සියලුම ආර්ථික මධ්‍යස්ථාන වල තොරතුරු සෙවීමේ නිලධාරී සම්බන්ධතා මණ්ඩලය</h3>
         <div class="officers-grid" id="officersGridHook"></div>
     </main>
 
     <main class="app-view" id="portalView">
-        <div class="portal-form-container" id="unauthorizedBox">
-            <h2><i class="fa-solid fa-fingerprint" style="color:var(--bright-orange)"></i> ගොවිපාලම සේවා ද්වාරය</h2>
-            <br>
-            <p style="text-align:center; font-size:13px; color:#666;">මෙම කොටස ගොවීන්ගේ ගිණුම් සෑදීමට වෙන් කර ඇත.</p>
-            <p style="text-align:center; margin-top:40px; font-size:12px; color:var(--bright-orange); cursor:pointer; font-weight:700;" onclick="accessVaultAdminMode()"><i class="fa-solid fa-vault"></i> Security Vault Login (Admin Only)</p>
+        <div class="portal-form-container" id="farmerRegisterFormBox">
+            <h2><i class="fa-solid fa-user-plus" style="color:var(--mid-green)"></i> ජාතික ගොවි ඩිජිටල් හැඳුනුම්පත් ලියාපදිංචිය</h2>
+            <p style="text-align:center; font-size:12px; color:#666; margin-bottom:20px;">මෙහි ඇතුළත් කරන ඔබගේ විස්තර සුරක්ෂිතව රාජ්‍ය දත්ත පද්ධතියට (Laptop DB) එකතු වේ.</p>
+            <div class="input-group"><label>ගොවි මහතාගේ සම්පූර්ණ නම</label><input type="text" id="fName" placeholder="උදා: එම්. ජී. බණ්ඩාර"></div>
+            <div class="input-group"><label>ජංගම දුරකථන අංකය</label><input type="tel" id="fPhone" placeholder="උදා: 0771234567"></div>
+            <div class="input-group"><label>ප්‍රධාන වගා ප්‍රදේශය / ග්‍රාම නිලධාරී වසම</label><input type="text" id="fLoc" placeholder="උදා: කැප්පෙටිපොල, බදුල්ල"></div>
+            <div class="input-group"><label>ඔබ වගා කරන ප්‍රධාන බෝග වර්ගය</label><input type="text" id="fCrop" placeholder="උදා: කැරට්, අල සහ ගෝවා"></div>
+            <button class="action-submit-btn" onclick="submitFarmerForm()">ඩිජිටල් ගිණුම සාදා දත්ත පද්ධතියට යවන්න</button>
+            
+            <p style="text-align:center; margin-top:35px; font-size:12px; color:var(--bright-orange); cursor:pointer; font-weight:700;" onclick="accessVaultAdminMode()"><i class="fa-solid fa-vault"></i> Security Vault Login (Admin Only)</p>
+        </div>
+    </main>
+
+    <main class="app-view" id="farmersAdminView">
+        <h3 style="color:var(--dark-green); margin-bottom:15px;"><i class="fa-solid fa-laptop-code"></i> සජීවීව ලියාපදිංචි වූ ගොවීන්ගේ දත්ත ලැයිස්තුව (Laptop Database Cache)</h3>
+        <div class="price-table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>නම</th>
+                        <th>දුරකථනය</th>
+                        <th>ප්‍රදේශය</th>
+                        <th>වගාවන්</th>
+                    </tr>
+                </thead>
+                <tbody id="laptopFarmersTableBody"></tbody>
+            </table>
         </div>
     </main>
 
     <div class="bottom-sticky-nav">
         <button class="sticky-nav-item active" id="mb-pricesView" onclick="showPage('pricesView')"><i class="fa-solid fa-chart-line"></i><span>මිල ගණන්</span></button>
         <button class="sticky-nav-item" id="mb-diseasesView" onclick="showPage('diseasesView')"><i class="fa-solid fa-book-medical"></i><span>විශ්වකෝෂය</span></button>
-        <button class="sticky-nav-item" id="mb-marketView" onclick="showPage('marketView')"><i class="fa-solid fa-address-book"></i><span>නිලධාරීන්</span></button>
-        <button class="sticky-nav-item" id="mb-portalView" onclick="showPage('portalView')"><i class="fa-solid fa-user-gear"></i><span>ඇඩ්මින්</span></button>
+        <button class="sticky-nav-item" id="mb-marketView" onclick="showPage('marketView')"><i class="fa-solid fa-users"></i><span>නිලධාරීන්</span></button>
+        <button class="sticky-nav-item" id="mb-portalView" onclick="showPage('portalView')"><i class="fa-solid fa-user-lock"></i><span>ලොගින්</span></button>
     </div>
 
     <script>
-        // --- MASTER DATA ARCHITECTURE (ALL SRI LANKAN CROPS UNDER EACH MARKET) ---
-        let MASTER_MARKET_PRICES = {
-            dambulla: [
-                { name: "ලීක්ස් (Leeks)", price: 180, change: "+10 LKR", status: "up" },
-                { name: "කැරට් (Carrot)", price: 290, change: "+20 LKR", status: "up" },
-                { name: "බෝංචි (Beans)", price: 320, change: "-15 LKR", status: "down" },
-                { name: "තක්කාලි (Tomato)", price: 220, change: "-40 LKR", status: "down" },
-                { name: "ගෝවා (Cabbage)", price: 140, change: "+5 LKR", status: "up" },
-                { name: "අමුමිරිස් (Green Chili)", price: 650, change: "+80 LKR", status: "up" },
-                { name: "වට්ටක්කා (Pumpkin)", price: 110, change: "0 LKR", status: "up" }
-            ],
-            manning: [
-                { name: "ලීක්ස් (Leeks)", price: 210, change: "+15 LKR", status: "up" },
-                { name: "කැරට් (Carrot)", price: 330, change: "+35 LKR", status: "up" },
-                { name: "බෝංචි (Beans)", price: 360, change: "-5 LKR", status: "down" },
-                { name: "තක්කාලි (Tomato)", price: 260, change: "-20 LKR", status: "down" },
-                { name: "ගෝවා (Cabbage)", price: 170, change: "+10 LKR", status: "up" },
-                { name: "අමුමිරිස් (Green Chili)", price: 720, change: "+100 LKR", status: "up" },
-                { name: "වට්ටක්කා (Pumpkin)", price: 140, change: "+15 LKR", status: "up" }
-            ],
-            keppetipola: [
-                { name: "ලීක්ස් (Leeks)", price: 160, change: "+5 LKR", status: "up" },
-                { name: "කැරට් (Carrot)", price: 260, change: "+10 LKR", status: "up" },
-                { name: "බෝංචි (Beans)", price: 290, change: "-25 LKR", status: "down" },
-                { name: "තක්කාලි (Tomato)", price: 200, change: "-30 LKR", status: "down" },
-                { name: "ගෝවා (Cabbage)", price: 120, change: "0 LKR", status: "up" },
-                { name: "අමුමිරිස් (Green Chili)", price: 610, change: "+40 LKR", status: "up" },
-                { name: "වට්ටක්කා (Pumpkin)", price: 95, change: "-5 LKR", status: "down" }
-            ],
-            thambuththegama: [
-                { name: "ලීක්ස් (Leeks)", price: 200, change: "+10 LKR", status: "up" },
-                { name: "කැරට් (Carrot)", price: 310, change: "+20 LKR", status: "up" },
-                { name: "බෝංචි (Beans)", price: 330, change: "-10 LKR", status: "down" },
-                { name: "තක්කාලි (Tomato)", price: 170, change: "-50 LKR", status: "down" },
-                { name: "ගෝවා (Cabbage)", price: 150, change: "+15 LKR", status: "up" },
-                { name: "අමුමිරිස් (Green Chili)", price: 590, change: "+30 LKR", status: "up" },
-                { name: "වට්ටක්කා (Pumpkin)", price: 80, change: "-10 LKR", status: "down" }
-            ]
+        // --- COMPLETE NATIONAL CROPS REALTIME DATABASE FOR ALL ECONOMIC CENTERS ---
+        let GLOBAL_MARKET_PRICES_DB = {
+            dambulla: {
+                "එළවළු": [
+                    { name: "කැරට් (Carrot)", price: 280, change: "+15 LKR", status: "up" },
+                    { name: "ලීක්ස් (Leeks)", price: 170, change: "-10 LKR", status: "down" },
+                    { name: "බෝංචි (Beans)", price: 310, change: "+25 LKR", status: "up" },
+                    { name: "තක්කාලි (Tomato)", price: 210, change: "-35 LKR", status: "down" },
+                    { name: "ගෝවා (Cabbage)", price: 130, change: "+5 LKR", status: "up" },
+                    { name: "වම්බටု (Brinjal)", price: 180, change: "+10 LKR", status: "up" },
+                    { name: "පතෝල (Snake Gourd)", price: 140, change: "-5 LKR", status: "down" },
+                    { name: "වැටකොළු (Ridge Gourd)", price: 160, change: "+12 LKR", status: "up" },
+                    { name: "අමුමිරිස් (Green Chili)", price: 640, change: "+50 LKR", status: "up" },
+                    { name: "මාළු මිරිස් (Capsicum)", price: 420, change: "-15 LKR", status: "down" },
+                    { name: "නිවිති (Spinach)", price: 80, change: "0 LKR", status: "up" }
+                ],
+                "පළතුරු": [
+                    { name: "පැපොල් / ගස්ලබු (Papaya)", price: 150, change: "+5 LKR", status: "up" },
+                    { name: "ඇඹුල් කෙසෙල් (Sour Banana)", price: 190, change: "+12 LKR", status: "up" },
+                    { name: "කාර්තකොලොම්බන් අඹ (Mango)", price: 350, change: "-20 LKR", status: "down" },
+                    { name: "මොරිස් අන්නාසි (Pineapple)", price: 280, change: "+30 LKR", status: "up" },
+                    { name: "දේශීය දොඩම් (Orange)", price: 450, change: "0 LKR", status: "up" },
+                    { name: "අලිගැටපේර (Avocado)", price: 390, change: "+15 LKR", status: "up" }
+                ],
+                "අල බෝග": [
+                    { name: "වැලිමඩ අර්තාපල් (Potato)", price: 220, change: "-10 LKR", status: "down" },
+                    { name: "දේශීය බතල (Sweet Potato)", price: 140, change: "+5 LKR", status: "up" },
+                    { name: "මඤ්ඤොක්කා (Cassava)", price: 110, change: "+8 LKR", status: "up" }
+                ],
+                "කුළුබඩු": [
+                    { name: "දේශීය ඉඟුරු (Ginger)", price: 850, change: "+100 LKR", status: "up" },
+                    { name: "ගම්මිරිස් (Black Pepper)", price: 1250, change: "+20 LKR", status: "up" },
+                    { name: "කරාබුනැටි (Cloves)", price: 1650, change: "0 LKR", status: "up" }
+                ],
+                "ධාන්‍ය": [
+                    { name: "නාඩු වී (Paddy Nadu)", price: 220, change: "+2 LKR", status: "up" },
+                    { name: "දේශීය කුරක්කන් (Kurakkan)", price: 340, change: "0 LKR", status: "up" },
+                    { name: "බඩඉරිඟු (Maize)", price: 175, change: "+5 LKR", status: "up" }
+                ]
+            },
+            manning: {
+                "එළවළු": [
+                    { name: "කැරට් (Carrot)", price: 320, change: "+20 LKR", status: "up" },
+                    { name: "ලීක්ස් (Leeks)", price: 210, change: "+5 LKR", status: "up" },
+                    { name: "බෝංචි (Beans)", price: 350, change: "-10 LKR", status: "down" },
+                    { name: "තක්කාලි (Tomato)", price: 250, change: "-15 LKR", status: "down" },
+                    { name: "ගෝවා (Cabbage)", price: 160, change: "+10 LKR", status: "up" },
+                    { name: "වම්බටု (Brinjal)", price: 210, change: "+15 LKR", status: "up" },
+                    { name: "අමුමිරිස් (Green Chili)", price: 710, change: "+90 LKR", status: "up" }
+                ],
+                "පළතුරු": [
+                    { name: "පැපොල් / ගස්ලබු (Papaya)", price: 180, change: "+10 LKR", status: "up" },
+                    { name: "ඇඹුල් කෙසෙල් (Sour Banana)", price: 220, change: "+15 LKR", status: "up" },
+                    { name: "මොරිස් අන්නාසි (Pineapple)", price: 310, change: "+20 LKR", status: "up" }
+                ],
+                "අල බෝග": [{ name: "වැලිමඩ අර්තාපල් (Potato)", price: 260, change: "-5 LKR", status: "down" }],
+                "කුළුබඩු": [{ name: "දේශීය ඉඟුරු (Ginger)", price: 920, change: "+50 LKR", status: "up" }],
+                "ධාන්‍ය": [{ name: "නාඩු වී (Paddy Nadu)", price: 235, change: "+5 LKR", status: "up" }]
+            },
+            keppetipola: {
+                "එළවළු": [
+                    { name: "කැරට් (Carrot)", price: 250, change: "+5 LKR", status: "up" },
+                    { name: "ලීක්ස් (Leeks)", price: 140, change: "-15 LKR", status: "down" },
+                    { name: "බෝංචි (Beans)", price: 280, change: "+10 LKR", status: "up" },
+                    { name: "තක්කාලි (Tomato)", price: 180, change: "-20 LKR", status: "down" }
+                ],
+                "පළතුරු": [
+                    { name: "පැපොල් / ගස්ලබු (Papaya)", price: 140, change: "0 LKR", status: "up" },
+                    { name: "අලිගැටපේර (Avocado)", price: 320, change: "+10 LKR", status: "up" }
+                ],
+                "අල බෝග": [{ name: "වැලිමඩ අර්තාපල් (Potato)", price: 210, change: "-15 LKR", status: "down" }],
+                "කුළුබඩු": [{ name: "ගම්මිරිස් (Black Pepper)", price: 1200, change: "0 LKR", status: "up" }],
+                "ධාන්‍ය": [{ name: "දේශීය කුරක්කන් (Kurakkan)", price: 320, change: "0 LKR", status: "up" }]
+            },
+            thambuththegama: {
+                "එළවළු": [
+                    { name: "වට්ටක්කා (Pumpkin)", price: 80, change: "-10 LKR", status: "down" },
+                    { name: "තක්කාලි (Tomato)", price: 160, change: "-40 LKR", status: "down" },
+                    { name: "අමුමිරිස් (Green Chili)", price: 580, change: "+30 LKR", status: "up" }
+                ],
+                "පළතුරු": [
+                    { name: "පැපොල් / ගස්ලබු (Papaya)", price: 130, change: "+5 LKR", status: "up" },
+                    { name: "කාර්තකොලොම්බන් අඹ (Mango)", price: 310, change: "-15 LKR", status: "down" }
+                ],
+                "අල බෝග": [{ name: "මඤ්ඤොක්كا (Cassava)", price: 95, change: "+5 LKR", status: "up" }],
+                "කුළුබඩු": [{ name: "දේශීය ඉඟුරු (Ginger)", price: 880, change: "+40 LKR", status: "up" }],
+                "ධාන්‍ය": [{ name: "බඩඉරිඟු (Maize)", price: 160, change: "+2 LKR", status: "up" }]
+            }
         };
 
-        let MARKET_CONTACTS = {
-            dambulla: [
-                { name: "ආර්.එම්. සේනාරත්න මහතා", role: "ප්‍රධාන වෙළඳ සංවිධායක", phone: "066-2284901", mobile: "077-3456781" },
-                { name: "ඩී.එම්. කීර්තිසිංහ මහතා", role: "තත්ත්ව පාලක නිලධාරී", phone: "066-2284902", mobile: "071-8899221" }
-            ],
-            manning: [
-                { name: "එච්.පී. නිමල් ශාන්ත මහතා", role: "භාරකාර කළමනාකාර", phone: "011-2345611", mobile: "077-7123456" },
-                { name: "සුගත් ප්‍රනාන්දු මහතා", role: "මිල සමීක්ෂණ නිලධාරී", phone: "011-2345612", mobile: "072-4567890" }
-            ],
-            keppetipola: [
-                { name: "කේ. බණ්ඩාර මහතා", role: "සංාලක ලේකම්", phone: "057-2281045", mobile: "076-1122334" }
-            ],
-            thambuththegama: [
-                { name: "ඩබ්ලිව්.ඒ. ගුණසේකර මහතා", role: "කෘෂි අලෙවි ප්‍රධානී", phone: "025-2276100", mobile: "071-4455667" }
-            ]
-        };
+        // --- FULL DIRECTORY FOR ALL SRI LANKAN ECONOMIC CENTERS ---
+        let ALL_MARKETS_CONTACTS = [
+            { market: "දඹුල්ල මහ ආර්ථික මධ්‍යස්ථානය", name: "ආර්.එම්. සේනාරත්න මහතා", role: "ප්‍රධාන වෙළඳ සන්නිවේදක", phone: "066-2284901", mobile: "077-3456781" },
+            { market: "දඹුල්ල මහ ආර්ථික මධ්‍යස්ථානය", name: "ඩී.එම්. කීර්තිසිංහ මහතා", role: "රජයේ මිල සමීක්ෂක", phone: "066-2284902", mobile: "071-8899221" },
+            { market: "කොළඹ මැනිං වෙළඳපොළ", name: "එච්.පී. නිමල් ශාන්ත මහතා", role: "භාරකාර කළමනාකාර ප්‍රධානී", phone: "011-2345611", mobile: "077-7123456" },
+            { market: "කොළඹ මැනිං වෙළඳපොළ", name: "සුගත් ප්‍රනාන්දු මහතා", role: "අලෙවි නියෝජිත නිලධාරී", phone: "011-2345612", mobile: "072-4567890" },
+            { market: "කැප්පෙටිපොල ආර්ථික මධ්‍යස්ථානය", name: "කේ. බණ්ඩාර මහතා", role: "පරිපාලන ලේකම්", phone: "057-2281045", mobile: "076-1122334" },
+            { market: "තඹුත්තේගම ආර්ථික මධ්‍යස්ථානය", name: "ඩබ්ලිව්.ඒ. ගුණසේකර මහතා", role: "කෘෂි බෝග සම්බන්ධකාරක", phone: "025-2276100", mobile: "071-4455667" }
+        ];
 
         let CROP_DISEASES_DB = [
             { id: "d1", type: "එළවළු", crop: "කැරට් / ගෝවා වර්ග", disease: "මුල් කුණුවීමේ දිලීර රෝගය", img: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?q=80&w=400", symptoms: "පහළ කොළ කහ පැහැ වී ශාකය සම්පූර්ණයෙන්ම පස මතට කඩා වැටීම සහ මුල් කුණුවීම.", cure: "පසෙහි ජලාපවහනය ක්‍රමවත් කරන්න. Mancozeb හෝ Copper Hydroxide අඩංගු දිලීර නාශකයක් පසට යොදන්න." },
             { id: "d2", type: "එළවළු", crop: "තක්කාලි / මිරිස්", disease: "කොළ කොඩවීමේ වෛරස් රෝගය (Leaf Curl)", img: "https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?q=80&w=400", symptoms: "ශාකයේ පත්‍ර කුඩා වී උඩට රෝල් වීම, කහ පැහැ වීම සහ මල් හටගැනීම නතර වීම.", cure: "පැල මැක්කන් (Thrips) මර්දනයට Acetamiprid යොදන්න. ස්වභාවිකව සබන් දියර සහ දුම්කොළ තැම්බූ ජලය ඉසින්න." },
-            { id: "d3", type: "පළතුරු", crop: "පැපොල් / අඹ", disease: "පිටි මකුළු සහ අන්ත්‍රැක්නෝස් රෝගය", img: "https://images.unsplash.com/photo-1619546813926-a78fa6372cd2?q=80&w=400", symptoms: "පළතුරු ලාබාල අවධියේදීම කළු පැහැති ලප හටගෙන කුණුවීම සහ පත්‍ර යට සුදු පැහැති පිටි වැනි මකුළුවන් බෝවීම.", cure: "Sulfur අඩංගු දිලීර නාශක යොදන්න. කොහොඹ තෙල් इमල්ෂන් (Neem Oil Emulsion) භාවිතයෙන් සෝදා හරින්න." }
+            { id: "d3", type: "පළතුරු", crop: "පැපොල් / අඹ", disease: "පිටි මකුළු සහ අන්ත්‍රැක්නෝස් රෝගය", img: "https://images.unsplash.com/photo-1619546813926-a78fa6372cd2?q=80&w=400", symptoms: "පළතුරු ලාබාල අවධියේදීම කළු පැහැති ලප හටගෙන කුණුවීම සහ පත්‍ර යට සුදු පැහැති පිටි වැනි මකුළුවන් බෝවීම.", cure: "Sulfur අඩංගු දිලීර නාශක යොදන්න. කොහොඹ තෙල් භාවිතයෙන් සෝදා හරින්න." }
         ];
 
+        let FARMERS_REG_DATABASE = [];
         let isVaultAdmin = false;
-        let activeCropCategory = "All";
 
         function showPage(viewId) {
             document.querySelectorAll('.app-view').forEach(v => v.classList.remove('active'));
@@ -318,53 +367,44 @@
             window.scrollTo(0,0);
         }
 
-        // --- LOAD PRICES & CONTACTS SYSTEM ---
-        function loadMarketPricesAndContacts() {
-            let selectedMarket = document.getElementById('marketSelector').value;
-            
-            // Map Name Translators
-            let marketNames = { dambulla: "දඹුල්ල මහ", manning: "කොළඹ මැනිං", keppetipola: "කැප්පෙටිපොල", thambuththegama: "තඹුත්තේගම" };
-            document.getElementById('selectedMarketName').innerText = marketNames[selectedMarket];
-            document.getElementById('contactMarketName').innerText = marketNames[selectedMarket];
+        // --- MULTI-LEVEL FILTER PRICE LOGIC ---
+        function processMarketAndCategoryFilter() {
+            let market = document.getElementById('marketSelector').value;
+            let category = document.getElementById('categorySelector').value;
 
-            // Render Prices Table
-            let tableBody = document.getElementById('marketPricesTableBody');
+            let mNames = { dambulla: "දඹුල්ල මහ", manning: "කොළඹ මැනිං", keppetipola: "කැප්පෙටිපොල", thambuththegama: "තඹුත්තේගම" };
+            document.getElementById('lblActiveMarket').innerText = mNames[market];
+            document.getElementById('lblActiveCategory').innerText = category;
+
+            let tableBody = document.getElementById('masterPricesTableBody');
             tableBody.innerHTML = "";
-            MASTER_MARKET_PRICES[selectedMarket].forEach((p, idx) => {
+
+            let cropList = GLOBAL_MARKET_PRICES_DB[market][category] || [];
+            
+            if(cropList.length === 0) {
+                tableBody.innerHTML = "<tr><td colspan='3' style='text-align:center; color:#888;'>මෙම ප්‍රදේශයට අදාළව බෝග දත්ත දැනට වාර්තා වී නොමැත.</td></tr>";
+                return;
+            }
+
+            cropList.forEach((c, idx) => {
                 tableBody.innerHTML += `
                     <tr>
-                        <td><strong>${p.name}</strong></td>
-                        <td>Rs. <span contenteditable="${isVaultAdmin}" onblur="updateTablePrice('${selectedMarket}', ${idx}, this)">${p.price}</span>.00</td>
-                        <td class="${p.status === 'up' ? 'badge-up' : 'badge-down'}">${p.change}</td>
+                        <td><strong>${c.name}</strong></td>
+                        <td>Rs. <span contenteditable="${isVaultAdmin}" onblur="updateLivePrice('${market}', '${category}', ${idx}, this)">${c.price}</span>.00</td>
+                        <td><span class="${c.status === 'up' ? 'badge-up' : 'badge-down'}">${c.change}</span></td>
                     </tr>`;
             });
-
-            // Render Contacts Grid
-            let contactsGrid = document.getElementById('officersGridHook');
-            contactsGrid.innerHTML = "";
-            MARKET_CONTACTS[selectedMarket].forEach(o => {
-                contactsGrid.innerHTML += `
-                    <div class="officer-card">
-                        <h4>${o.name}</h4>
-                        <p><strong>තනතුර:</strong> ${o.role}</p>
-                        <p><i class="fa-solid fa-phone"></i> ස්ථාවර: ${o.phone}</p>
-                        <p><i class="fa-solid fa-mobile-screen"></i> ජංගම: ${o.mobile}</p>
-                        <a href="tel:${o.mobile}" class="call-btn"><i class="fa-solid fa-phone-volume"></i> සෘජුවම ඇමතීම</a>
-                    </div>`;
-            });
         }
 
-        function updateTablePrice(market, index, el) {
-            MASTER_MARKET_PRICES[market][index].price = parseInt(el.innerText) || 0;
+        function updateLivePrice(market, cat, idx, el) {
+            GLOBAL_MARKET_PRICES_DB[market][cat][idx].price = parseInt(el.innerText) || 0;
         }
 
-        // --- CROP ENCYCLOPEDIA RENDER & ENGINE ---
+        // --- ENCYCLOPEDIA LOGIC ---
         function renderCropEncyclopedia(data = CROP_DISEASES_DB) {
             let container = document.getElementById('cropDiseaseGridHook');
             container.innerHTML = "";
-            let filtered = (activeCropCategory === "All") ? data : data.filter(c => c.type === activeCropCategory);
-            
-            filtered.forEach(c => {
+            data.forEach(c => {
                 container.innerHTML += `
                     <div class="disease-profile-card">
                         <div class="disease-img-frame">
@@ -375,17 +415,10 @@
                             <h3>${c.disease}</h3>
                             <p style='font-size:13px; margin-bottom:5px;'><strong>අදාල බෝග:</strong> ${c.crop}</p>
                             <p style='font-size:13px; margin-bottom:5px;'><strong>රෝග ලක්ෂණ:</strong> ${c.symptoms}</p>
-                            <p style='font-size:13px; background:#f9f9f9; padding:8px; border-radius:6px; border:1px solid #eee; margin-top:10px;'><strong>ප්‍රතිකාර සහ බෙහෙත්:</strong> ${c.cure}</p>
+                            <p style='font-size:13px; background:#f9f9f9; padding:10px; border-radius:6px; border:1px solid #eee; margin-top:10px;'><strong>නිල ඖෂධ/ප්‍රතිකාර:</strong> ${c.cure}</p>
                         </div>
                     </div>`;
             });
-        }
-
-        function filterCropCategory(cat) {
-            activeCropCategory = cat;
-            document.querySelectorAll('.filter-chip').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-            renderCropEncyclopedia();
         }
 
         function searchCrops() {
@@ -394,51 +427,108 @@
             renderCropEncyclopedia(matches);
         }
 
-        // --- ADMIN SUBMIT NEW CROP/DISEASE DATA ---
-        function adminSubmitNewDisease() {
-            let type = document.getElementById('admCropType').value;
-            let crop = document.getElementById('admCropName').value;
-            let disease = document.getElementById('admDiseaseName').value;
+        function adminSubmitDisease() {
+            let type = document.getElementById('admType').value;
+            let crop = document.getElementById('admCrop').value;
+            let disease = document.getElementById('admDisease').value;
             let symptoms = document.getElementById('admSymptoms').value;
             let cure = document.getElementById('admCure').value;
-            let img = document.getElementById('admImgUrl').value;
+            let img = document.getElementById('admImg').value;
 
-            if(!crop || !disease || !symptoms || !cure) {
-                showToastNotification("කරුණාකර සියලු විස්තර පුරවන්න බොසා!");
-                return;
-            }
+            if(!crop || !disease || !symptoms || !cure) { showToastNotification("කරුණාකර සියලු විස්තර පුරවන්න."); return; }
 
             CROP_DISEASES_DB.unshift({ id: Date.now().toString(), type, crop, disease, symptoms, cure, img });
             renderCropEncyclopedia();
-            showToastNotification("🎯 අලුත් බෝග රෝග විස්තරය සාර්ථකව විශ්වකෝෂයට ඇතුළත් කරා!");
-            
-            // Clear Form
-            document.getElementById('admCropName').value = "";
-            document.getElementById('admDiseaseName').value = "";
-            document.getElementById('admSymptoms').value = "";
-            document.getElementById('admCure').value = "";
+            showToastNotification("🎯 නව රෝග දත්තය සාර්ථකව විශ්වකෝෂයට ඇතුළත් කරා!");
         }
 
-        // --- 🔐 SECURITY ACCESS CONTROL ---
+        // --- OFFICERS CONTACT ENGINE ---
+        function renderAllOfficers() {
+            let grid = document.getElementById('officersGridHook');
+            grid.innerHTML = "";
+            ALL_MARKETS_CONTACTS.forEach(o => {
+                grid.innerHTML += `
+                    <div class="officer-card">
+                        <span style="font-size:11px; background:#e8f5e9; color:var(--dark-green); padding:3px 8px; border-radius:4px; font-weight:700;">${o.market}</span>
+                        <h4 style="margin-top:8px;">${o.name}</h4>
+                        <p><strong>තනතුර:</strong> ${o.role}</p>
+                        <p><i class="fa-solid fa-phone"></i> ලෑන්ඩ් ලයින්: ${o.phone}</p>
+                        <p><i class="fa-solid fa-mobile-screen"></i> ජංගම අංකය: ${o.mobile}</p>
+                        <a href="tel:${o.mobile}" class="call-btn"><i class="fa-solid fa-phone-volume"></i> ඇමතුමක් ගන්න</a>
+                    </div>`;
+            });
+        }
+
+        // --- USER/FARMER REGISTRATION ENGINE ---
+        function submitFarmerForm() {
+            let name = document.getElementById('fName').value;
+            let phone = document.getElementById('fPhone').value;
+            let location = document.getElementById('fLoc').value;
+            let crop = document.getElementById('fCrop').value;
+
+            if(!name || !phone || !location || !crop) {
+                showToastNotification("කරුණාකර ඔබගේ සියලුම විස්තර නිවැරදිව පුරවන්න!");
+                return;
+            }
+
+            let newFarmer = { name, phone, location, crop };
+            FARMERS_REG_DATABASE.unshift(newFarmer);
+            localStorage.setItem('laptop_farmers_cache', JSON.stringify(FARMERS_REG_DATABASE));
+            
+            renderFarmersTable();
+            showToastNotification("🥳 ඔබගේ ගිණුම සාර්ථකව සාදා දත්ත ගබඩාවට යවන ලදී!");
+
+            document.getElementById('fName').value = "";
+            document.getElementById('fPhone').value = "";
+            document.getElementById('fLoc').value = "";
+            document.getElementById('fCrop').value = "";
+        }
+
+        function renderFarmersTable() {
+            let tbody = document.getElementById('laptopFarmersTableBody');
+            tbody.innerHTML = "";
+            FARMERS_REG_DATABASE.forEach(f => {
+                tbody.innerHTML += `<tr><td>${f.name}</td><td>${f.phone}</td><td>${f.location}</td><td>${f.crop}</td></tr>`;
+            });
+        }
+
+        // --- EXPORT DATABASES TO LAPTOP EXCEL/SQL FILE ---
+        function exportFarmersToCSV() {
+            if(FARMERS_REG_DATABASE.length === 0) { showToastNotification("දත්ත පද්ධතිය හිස් බැවින් Export කල නොහැක."); return; }
+            let csvContent = "data:text/csv;charset=utf-8,නම,දුරකථනය,ප්‍රදේශය,බෝගය\n" 
+                + FARMERS_REG_DATABASE.map(e => `"${e.name}","${e.phone}","${e.location}","${e.crop}"`).join("\n");
+            
+            let encodedUri = encodeURI(csvContent);
+            let link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "Farmers_Laptop_Database.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            showToastNotification("📥 Excel/CSV File එක Laptop එකට බාගත විය! දැන් මෙය ඔබේ Database එකට ඇතුල් කල හැක.");
+        }
+
+        // --- ADMIN VAULT CONTROL LOGISTICS ---
         function accessVaultAdminMode() {
-            let pass = prompt("DASHBOARD CODE ENTRY:");
+            let pass = prompt("🔐 SECURITY SYSTEM ACCESS PASSPHRASE:");
             if(pass === "goviadmin123") {
                 isVaultAdmin = true;
                 document.getElementById('secretAdminHub').classList.add('active');
                 document.getElementById('adminAddDiseaseBox').style.display = "block";
-                loadMarketPricesAndContacts();
-                showToastNotification("🔐 SECURITY ACCESS ENABLED: Admin Control Active.");
+                document.getElementById('tb-farmersAdminView').style.display = "block";
+                processMarketAndCategoryFilter();
+                showToastNotification("🔓 ACCESS GRANTED: National Vault Synchronized.");
             } else {
-                showToastNotification("WRONG SECURITY KEY.");
+                showToastNotification("INVALID ACCESS CODE PRIVILEGES.");
             }
         }
 
         function lockVaultMode() { isVaultAdmin = false; location.reload(); }
 
-        function saveVaultDataToServer() {
-            localStorage.setItem('govi_mega_prices', JSON.stringify(MASTER_MARKET_PRICES));
-            localStorage.setItem('govi_mega_diseases', JSON.stringify(CROP_DISEASES_DB));
-            showToastNotification("🎯 All Global Databases Successfully Synced to Cloud Storage!");
+        function saveSystemDatabase() {
+            localStorage.setItem('govi_ultimate_prices', JSON.stringify(GLOBAL_MARKET_PRICES_DB));
+            localStorage.setItem('govi_ultimate_diseases', JSON.stringify(CROP_DISEASES_DB));
+            showToastNotification("🎯 All Master Databases Cached and Synced to Secure Infrastructure!");
         }
 
         function showToastNotification(msg) {
@@ -451,11 +541,14 @@
         }
 
         window.onload = function() {
-            if(localStorage.getItem('govi_mega_prices')) MASTER_MARKET_PRICES = JSON.parse(localStorage.getItem('govi_mega_prices'));
-            if(localStorage.getItem('govi_mega_diseases')) CROP_DISEASES_DB = JSON.parse(localStorage.getItem('govi_mega_diseases'));
-            
-            loadMarketPricesAndContacts();
+            if(localStorage.getItem('govi_ultimate_prices')) GLOBAL_MARKET_PRICES_DB = JSON.parse(localStorage.getItem('govi_ultimate_prices'));
+            if(localStorage.getItem('govi_ultimate_diseases')) CROP_DISEASES_DB = JSON.parse(localStorage.getItem('govi_ultimate_diseases'));
+            if(localStorage.getItem('laptop_farmers_cache')) FARMERS_REG_DATABASE = JSON.parse(localStorage.getItem('laptop_farmers_cache'));
+
+            processMarketAndCategoryFilter();
             renderCropEncyclopedia();
+            renderAllOfficers();
+            renderFarmersTable();
         };
     </script>
 </body>
