@@ -20,13 +20,13 @@
             --apple-ease: cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Noto Sans Sinhala', 'Poppins', sans-serif; transition: all 0.4s var(--apple-ease); }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Noto Sans Sinhala', 'Poppins', sans-serif; transition: all 0.3s var(--apple-ease); }
         body { background-color: var(--bg-light); color: var(--text-dark); padding-bottom: 90px; overflow-x: hidden; }
 
         /* 🌟 APPLE SPLASH SCREEN */
         #splashScreen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, var(--dark-green) 0%, #111 100%); z-index: 99999; display: flex; justify-content: center; align-items: center; }
         .splash-anim-box { text-align: center; }
-        .splash-text { font-size: 55px; font-weight: 700; background: linear-gradient(90deg, var(--gold-yellow), #80ed99, var(--bright-orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: pulseGlow 2s infinite alternate; letter-spacing: 2px; }
+        .splash-text { font-size: 55px; font-weight: 700; background: linear-gradient(90deg, var(--gold-yellow), #80ed99, var(--bright-orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: pulseGlow 1.5s infinite alternate; letter-spacing: 2px; }
         @keyframes pulseGlow { 0% { transform: scale(0.95); opacity: 0.8; } 100% { transform: scale(1.05); opacity: 1; } }
 
         /* HEADER & NAVIGATION */
@@ -40,31 +40,28 @@
         .header-controls { display: flex; align-items: center; gap: 15px; }
         .lang-select-dropdown { background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.3); padding: 8px 12px; border-radius: 20px; font-weight: 700; outline: none; cursor: pointer; font-size: 12px; }
         .lang-select-dropdown option { color: #000; }
-        .lang-select-dropdown:hover { background: rgba(255,255,255,0.3); }
 
-        .auth-status-btn { background: var(--mid-green); padding: 10px 22px; border-radius: 30px; border: 1.5px solid var(--gold-yellow); font-size: 13px; font-weight: 600; color: #fff; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .auth-status-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255, 183, 3, 0.2); }
+        .auth-status-btn { background: var(--mid-green); padding: 10px 22px; border-radius: 30px; border: 1.5px solid var(--gold-yellow); font-size: 13px; font-weight: 600; color: #fff; cursor: pointer; }
+        .auth-status-btn:hover { transform: translateY(-2px); }
 
         .navigation-tabs { background: rgba(255,255,255,0.8); backdrop-filter: var(--apple-blur); display: flex; justify-content: space-around; border-bottom: 1px solid var(--border-color); position: sticky; top: 69px; z-index: 999; }
         .tab-trigger { background: none; border: none; padding: 16px 10px; font-size: 14px; font-weight: 700; color: #555; cursor: pointer; flex: 1; text-align: center; border-bottom: 3px solid transparent; }
-        .tab-trigger.active { color: var(--dark-green); border-bottom-color: var(--bright-orange); transform: scale(1.02); }
+        .tab-trigger.active { color: var(--dark-green); border-bottom-color: var(--bright-orange); }
 
         /* CARDS & INTERFACE ELEMENTS */
-        .app-view { display: none; padding: 30px 6%; animation: viewFadeIn 0.5s var(--apple-ease); }
+        .app-view { display: none; padding: 30px 6%; animation: viewFadeIn 0.3s var(--apple-ease); }
         .app-view.active { display: block; }
-        @keyframes viewFadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes viewFadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        .selector-card, .price-table-wrapper, .portal-form-container, .officer-card, .disease-profile-card { background: #fff; border-radius: 18px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.04); overflow: hidden; }
+        .selector-card, .price-table-wrapper, .portal-form-container, .officer-card, .disease-profile-card { background: #fff; border-radius: 18px; box-shadow: 0 10px 30px rgba(0,0,0,0.02); border: 1px solid rgba(0,0,0,0.04); overflow: hidden; }
         .selector-card { padding: 20px; border-left: 6px solid var(--mid-green); margin-bottom: 25px; }
         
         .global-select, .search-wrapper input { width: 100%; padding: 14px; border-radius: 12px; border: 1.5px solid var(--border-color); font-size: 14px; font-weight: 700; outline: none; background: #fff; }
-        .global-select:focus, .search-wrapper input:focus { border-color: var(--mid-green); box-shadow: 0 0 0 4px rgba(45, 106, 79, 0.1); }
 
         /* TABLES */
         table { width: 100%; border-collapse: collapse; }
         th { background: var(--dark-green); color: #fff; padding: 16px; font-size: 14px; text-align: left; }
         td { padding: 16px; border-bottom: 1px solid var(--border-color); font-size: 14px; }
-        tr:hover td { background: rgba(45, 106, 79, 0.03); }
         .badge-up { color: #2d6a4f; font-weight: 700; background: #d8f3dc; padding: 5px 12px; border-radius: 20px; font-size: 12px; }
         .badge-down { color: #d90429; font-weight: 700; background: #ffe3e3; padding: 5px 12px; border-radius: 20px; font-size: 12px; }
 
@@ -80,7 +77,7 @@
         .pass-strength-bar { height: 100%; width: 0%; background: #d90429; transition: width 0.3s ease; }
 
         /* 🟢 SPECIAL TIMED GREEN ALERT */
-        #greenAlertBanner { position: fixed; top: 20px; left: 50%; transform: translateX(-50%) translateY(-100px); background: #2d6a4f; color: #fff; padding: 16px 30px; border-radius: 30px; font-weight: 700; font-size: 14px; text-align: center; box-shadow: 0 15px 40px rgba(0,0,0,0.2); z-index: 100000; opacity: 0; transition: all 0.5s var(--apple-ease); max-width: 90%; }
+        #greenAlertBanner { position: fixed; top: 20px; left: 50%; transform: translateX(-50%) translateY(-100px); background: #2d6a4f; color: #fff; padding: 16px 30px; border-radius: 30px; font-weight: 700; font-size: 14px; text-align: center; box-shadow: 0 15px 40px rgba(0,0,0,0.2); z-index: 100000; opacity: 0; transition: all 0.4s var(--apple-ease); max-width: 90%; }
         #greenAlertBanner.active { transform: translateX(-50%) translateY(0); opacity: 1; }
 
         /* 🔍 REALTIME AI LOADING MODAL */
@@ -90,27 +87,25 @@
 
         /* PROFILE SCREEN UI */
         .profile-container { text-align: center; padding: 20px 0; }
-        .avatar-frame { width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--mid-green); margin: 0 auto 15px; position: relative; overflow: hidden; background: #eee; }
-        .avatar-frame img { width: 100%; height: 100%; object-fit: cover; }
+        .avatar-frame { width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--mid-green); margin: 0 auto 15px; position: relative; overflow: hidden; background: linear-gradient(135deg, #2d6a4f, #ffb703); display: flex; justify-content: center; align-items: center; color: white; font-size: 40px; }
+        .avatar-frame img { width: 100%; height: 100%; object-fit: cover; display: none; }
         .file-upload-input { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
         .upload-icon-overlay { position: absolute; bottom: 0; background: rgba(0,0,0,0.6); color: #fff; width: 100%; font-size: 11px; padding: 3px 0; }
 
-        /* ENCYCLOPEDIA & DIRECTORIES */
-        .search-wrapper { background: #fff; padding: 12px 20px; border-radius: 30px; display: flex; align-items: center; gap: 10px; border: 2px solid var(--mid-green); margin-bottom: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
+        /* ENCYCLOPEDIA & DIRECTORIES (FAST GRADIENT IMAGES) */
+        .search-wrapper { background: #fff; padding: 12px 20px; border-radius: 30px; display: flex; align-items: center; gap: 10px; border: 2px solid var(--mid-green); margin-bottom: 25px; }
         .search-wrapper input { border: none; padding: 0; }
         .crop-disease-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 25px; }
-        .disease-img-frame { height: 170px; position: relative; background: #e2e8f0; }
-        .disease-img-frame img { width: 100%; height: 100%; object-fit: cover; }
+        .disease-img-frame { height: 140px; position: relative; background: linear-gradient(135deg, #1b4332, #40916c); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 45px; }
+        .crop-type-badge { position: absolute; top: 10px; left: 10px; background: var(--gold-yellow); color: #000; padding: 4px 10px; border-radius: 10px; font-size: 11px; font-weight: 700; }
         .disease-details { padding: 20px; }
         .officers-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 20px; }
         .officer-card { padding: 20px; border-top: 4px solid var(--gold-yellow); }
         .call-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--bright-orange); color: #fff; text-decoration: none; padding: 10px 18px; border-radius: 10px; font-size: 12px; font-weight: 700; margin-top: 10px; }
-        .call-btn:active { transform: scale(0.95); }
 
         /* PORTAL MASTER HUB FORMS */
         .portal-form-container { padding: 30px; max-width: 550px; margin: 20px auto; }
         .action-submit-btn { width: 100%; background: var(--mid-green); color: #fff; border: none; padding: 14px; border-radius: 12px; font-weight: 700; cursor: pointer; font-size: 15px; }
-        .action-submit-btn:active { transform: scale(0.96); }
 
         /* ADMIN HUB STYLES */
         .secret-admin-control-hub { background: #111; color: #fff; padding: 15px 6%; display: none; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--bright-orange); position: sticky; top: 69px; z-index: 1050; }
@@ -124,7 +119,7 @@
         .sticky-nav-item.active { color: var(--gold-yellow); background: rgba(255,255,255,0.06); }
 
         #toastStack { position: fixed; top: 90px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 10px; }
-        .toast-notification { background: #222; color: #fff; padding: 12px 25px; border-radius: 10px; font-size: 13px; border-left: 5px solid var(--gold-yellow); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .toast-notification { background: #222; color: #fff; padding: 12px 25px; border-radius: 10px; font-size: 13px; border-left: 5px solid var(--gold-yellow); }
 
         @media (max-width: 768px) { .navigation-tabs { display: none; } }
     </style>
@@ -152,10 +147,9 @@
     <div class="secret-admin-control-hub" id="secretAdminHub">
         <div>
             <span style="color:var(--gold-yellow); font-weight:700;"><i class="fa-solid fa-vault"></i> SECURITY VAULT CORE ON</span>
-            <p style="font-size:10px; color:#aaa;">මිල ගණන් වෙනස් කිරීමට කොටුව උඩ කෙලින්ම ක්ලික් කරන්න.</p>
         </div>
         <div style="display:flex; gap:8px;">
-            <button class="admin-action-btn" onclick="exportFarmersToCSV()"><i class="fa-solid fa-download"></i> Export Laptop DB</button>
+            <button class="admin-action-btn" onclick="exportFarmersToCSV()"><i class="fa-solid fa-download"></i> Export CSV</button>
             <button class="admin-action-btn" style="background:var(--bright-orange); color:#fff;" onclick="saveSystemDatabase()"><i class="fa-solid fa-save"></i> Save All</button>
             <button class="admin-action-btn" style="background:#d90429; color:#fff;" onclick="lockVaultMode()">Lock</button>
         </div>
@@ -174,14 +168,14 @@
             </select>
             <div class="auth-status-btn" onclick="showPage('portalView')">
                 <i class="fa-solid fa-user-circle"></i>
-                <span id="globalUserLabel" data-si="ගොවි පියස ලොගින්" data-en="Farmer Login" data-ta="விவசாயි உள்நுழைவு">ගොවි පියස ලොගින්</span>
+                <span id="globalUserLabel" data-si="ගොවි පියස ලොගින්" data-en="Farmer Login" data-ta="விவசாயি உள்நுழைவு">ගොවි පියස ලොගින්</span>
             </div>
         </div>
     </header>
 
     <div class="navigation-tabs">
         <button class="tab-trigger active" id="tb-pricesView" onclick="showPage('pricesView')" data-si="ආර්ථික මධ්‍යස්ථාන මිල ගණන්" data-en="Market Prices" data-ta="சந்தை මිල நிலவரம்">ආර්ථික මධ්‍යස්ථාන මිල ගණන්</button>
-        <button class="tab-trigger" id="tb-diseasesView" onclick="showPage('diseasesView')" data-si="බෝග විශ්වකෝෂය" data-en="Crop Encyclopedia" data-ta="பயிර් கலைக்களஞ்சியம்">බෝග විශ්වකෝෂය</button>
+        <button class="tab-trigger" id="tb-diseasesView" onclick="showPage('diseasesView')" data-si="බෝග විශ්වකෝෂය" data-en="Crop Encyclopedia" data-ta="பயிர் கலைக்களஞ்சியம்">බෝග විශ්වකෝෂය</button>
         <button class="tab-trigger" id="tb-marketView" onclick="showPage('marketView')" data-si="මධ්‍යස්ථාන නිලධාරීන්" data-en="Market Officers" data-ta="சந்தை அதிகாரிகள்">මධ්‍යස්ථාන නිලධාරීන්</button>
         <button class="tab-trigger" id="tb-farmersAdminView" style="display:none; color:var(--bright-orange);" onclick="showPage('farmersAdminView')">Laptop DB Cache</button>
     </div>
@@ -230,18 +224,6 @@
     </main>
 
     <main class="app-view" id="diseasesView">
-        <div id="adminAddDiseaseBox" class="portal-form-container" style="display:none; border-top:4px solid var(--bright-orange); max-width:100%; margin-bottom:25px;">
-            <h4 style="color:var(--dark-green); margin-bottom:15px;"><i class="fa-solid fa-folder-plus"></i> නව බෝග රෝග විශ්වකෝෂ පුවරුව</h4>
-            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:15px;">
-                <div class="input-group"><label>කාණ්ඩය</label><select id="admType"><option value="එළවළු">එළවළු</option><option value="පළතුරු">පළතුරු</option><option value="අල බෝග">අල බෝග</option></select></div>
-                <div class="input-group"><label>බෝගයේ නම</label><input type="text" id="admCrop" placeholder="උදා: පැපොල්"></div>
-                <div class="input-group"><label>රෝගයේ නම</label><input type="text" id="admDisease" placeholder="උදා: පිටි අච්චු රෝගය"></div>
-                <div class="input-group"><label>රෝග ලක්ෂණ</label><input type="text" id="admSymptoms" placeholder="ලක්ෂණ..."></div>
-                <div class="input-group"><label>ප්‍රතිකාර</label><input type="text" id="admCure" placeholder="ඖෂධ පිළියම්..."></div>
-            </div>
-            <button class="action-submit-btn" style="background:var(--bright-orange); margin-top:10px;" onclick="adminSubmitDisease()">Database එකට සජීවීව ඇතුල් කරන්න</button>
-        </div>
-
         <div class="search-wrapper">
             <i class="fa-solid fa-magnifying-glass" style="color:var(--mid-green)"></i>
             <input type="text" id="cropSearchInput" placeholder="ඕනෑම බෝගයක් හෝ රෝගයක් සොයන්න (නැතිනම් AI මඟින් අන්තර්ජාලයෙන් සොයාදේ)..." onkeydown="if(event.key==='Enter') searchCropsAndInternet()">
@@ -256,14 +238,14 @@
     <main class="app-view" id="portalView">
         
         <div class="portal-form-container" id="authRegisterBox">
-            <h2 data-si="🌾 නව ගොවි ගිණුමක් සෑදීම" data-en="🌾 Farmer Registration" data-ta="🌾 விவசாயි பதிவு">🌾 නව ගොවි ගිණුමක් සෑදීම</h2>
-            <div class="input-group" id="grp-name"><label>සම්පූර්ණ නම (Full Name)</label><input type="text" id="regName" oninput="validateField(this, /^[A-Za-z. ශ්‍රීලංකා]+$/)"><span class="validation-indicator">✅</span></div>
-            <div class="input-group" id="grp-phone"><label>දුරකථන අංකය (Phone Number)</label><input type="tel" id="regPhone" placeholder="0771234567" oninput="validateField(this, /^07[0-9]{8}$/)"><span class="validation-indicator">✅</span></div>
-            <div class="input-group" id="grp-email"><label>ඊමේල් ලිපිනය (Email Address)</label><input type="email" id="regEmail" placeholder="farmer@gmail.com" oninput="validateField(this, /^[^\s@]+@[^\s@]+\.[^\s@]+$/)"><span class="validation-indicator">✅</span></div>
-            <div class="input-group" id="grp-date"><label>උපන් දිනය (Birthday)</label><input type="date" id="regDate" oninput="validateField(this, .+)"><span class="validation-indicator">✅</span></div>
-            <div class="input-group" id="grp-loc"><label>වගා ප්‍රදේශය (District/Area)</label><input type="text" id="regLoc" oninput="validateField(this, .+)"><span class="validation-indicator">✅</span></div>
+            <h2 data-si="🌾 නව ගොවි ගිණුමක් සෑදීම" data-en="🌾 Farmer Registration" data-ta="🌾 விவசாயி பதிவு">🌾 නව ගොවි ගිණුමක් සෑදීම</h2>
+            <div class="input-group" id="grp-name"><label>සම්පූර්ණ නම</label><input type="text" id="regName" oninput="validateField(this, /^[A-Za-z. ශ්‍රීලංකා]+$/)"><span class="validation-indicator">✅</span></div>
+            <div class="input-group" id="grp-phone"><label>දුරකථන අංකය</label><input type="tel" id="regPhone" placeholder="0771234567" oninput="validateField(this, /^07[0-9]{8}$/)"><span class="validation-indicator">✅</span></div>
+            <div class="input-group" id="grp-email"><label>ඊමේල් ලිපිනය</label><input type="email" id="regEmail" placeholder="farmer@gmail.com" oninput="validateField(this, /^[^\s@]+@[^\s@]+\.[^\s@]+$/)"><span class="validation-indicator">✅</span></div>
+            <div class="input-group" id="grp-date"><label>උපන් දිනය</label><input type="date" id="regDate" oninput="validateField(this, .+)"><span class="validation-indicator">✅</span></div>
+            <div class="input-group" id="grp-loc"><label>වගා ප්‍රදේශය</label><input type="text" id="regLoc" oninput="validateField(this, .+)"><span class="validation-indicator">✅</span></div>
             <div class="input-group" id="grp-pass">
-                <label>රහස් මුරපදය (Create Password)</label>
+                <label>රහස් මුරපදය</label>
                 <input type="password" id="regPass" oninput="checkPasswordStrength(this)"><span class="validation-indicator">✅</span>
                 <div class="pass-strength-meter" id="psMeter"><div class="pass-strength-bar" id="psBar"></div></div>
                 <small id="psText" style="font-size:10px; color:#666;"></small>
@@ -273,19 +255,20 @@
         </div>
 
         <div class="portal-form-container" id="authLoginBox" style="display:none;">
-            <h2 data-si="🔐 ගොවි පියස ආරක්ෂිත ලොගින්" data-en="🔐 Secure Farmer Login" data-ta="🔐 விவசாயி உள்நுழைவு">🔐 ගොවි පියස ආරක්ෂිත ලොගින්</h2>
-            <div class="input-group"><label>ඊමේල් ලිපිනය (Email)</label><input type="email" id="logEmail"></div>
-            <div class="input-group"><label>මුරපදය (Password)</label><input type="password" id="logPass"></div>
+            <h2>🔐 ගොවි පියස ආරක්ෂිත ලොගින්</h2>
+            <div class="input-group"><label>ඊමේල් ලිපිනය</label><input type="email" id="logEmail"></div>
+            <div class="input-group"><label>මුරපදය</label><input type="password" id="logPass"></div>
             <button class="action-submit-btn" onclick="processFarmerLogin()">ගිණුමට ඇතුල් වන්න</button>
             <p style="text-align:center; font-size:12px; margin-top:15px; color:#555; cursor:pointer;" onclick="toggleAuthForms(true)">අලුත් ගිණුමක් සාදන්න? <b>ලියාපදිංචි වෙන්න</b></p>
             <p style="text-align:center; margin-top:35px; font-size:11px; color:var(--bright-orange); cursor:pointer;" onclick="accessVaultAdminMode()"><i class="fa-solid fa-user-shield"></i> Security Vault Area (Admin)</p>
         </div>
 
         <div class="portal-form-container" id="farmerProfileBox" style="display:none; text-align:center;">
-            <h2 style="color:var(--mid-green);"><i class="fa-solid fa-address-card"></i> ඔබගේ ජාතික ගොවි පැතිකඩ</h2>
+            <h2><i class="fa-solid fa-address-card"></i> ඔබගේ ජාතික ගොවි පැතිකඩ</h2>
             <div class="profile-container">
-                <div class="avatar-frame">
-                    <img id="profileAvatarImg" src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+                <div class="avatar-frame" id="avatarFrameCircle">
+                    <i class="fa-solid fa-user" id="avatarIconFallback"></i>
+                    <img id="profileAvatarImg" src="">
                     <div class="upload-icon-overlay"><i class="fa-solid fa-camera"></i> Change</div>
                     <input type="file" class="file-upload-input" id="avatarImageUploader" onchange="uploadProfilePhoto(this)">
                 </div>
@@ -302,7 +285,7 @@
     </main>
 
     <main class="app-view" id="farmersAdminView">
-        <h4 style="margin-bottom:15px; color:var(--dark-green);"><i class="fa-solid fa-laptop-code"></i> ලියාපදිංචි වී ඇති සමස්ත ගොවි ලිපිගොනු දත්ත ගබඩාව</h4>
+        <h4><i class="fa-solid fa-laptop-code"></i> ලියාපදිංචි වී ඇති සමස්ත ගොවි ලිපිගොනු දත්ත ගබඩාව</h4>
         <div class="price-table-wrapper">
             <table>
                 <thead><tr><th>නම</th><th>ඊමේල්</th><th>දුරකථනය</th><th>ප්‍රදේශය</th></tr></thead>
@@ -312,10 +295,10 @@
     </main>
 
     <div class="bottom-sticky-nav">
-        <button class="sticky-nav-item active" id="mb-pricesView" onclick="showPage('pricesView')"><i class="fa-solid fa-chart-line"></i><span data-si="මිල ගණන්" data-en="Prices" data-ta="விலை">මිල ගණන්</span></button>
-        <button class="sticky-nav-item" id="mb-diseasesView" onclick="showPage('diseasesView')"><i class="fa-solid fa-book-medical"></i><span data-si="විශ්වකෝෂය" data-en="Encyclopedia" data-ta="களஞ்சியம்">විශ්වකෝෂය</span></button>
-        <button class="sticky-nav-item" id="mb-marketView" onclick="showPage('marketView')"><i class="fa-solid fa-users"></i><span data-si="නිලධාරීන්" data-en="Officers" data-ta="அதிகாரிகள்">නිලධාරීන්</span></button>
-        <button class="sticky-nav-item" id="mb-portalView" onclick="showPage('portalView')"><i class="fa-solid fa-user-circle"></i><span data-si="ගොවි පියස" data-en="Profile" data-ta="சுயவிவரம்">ගොවි පියස</span></button>
+        <button class="sticky-nav-item active" id="mb-pricesView" onclick="showPage('pricesView')"><i class="fa-solid fa-chart-line"></i><span>මිල ගණන්</span></button>
+        <button class="sticky-nav-item" id="mb-diseasesView" onclick="showPage('diseasesView')"><i class="fa-solid fa-book-medical"></i><span>විශ්වකෝෂය</span></button>
+        <button class="sticky-nav-item" id="mb-marketView" onclick="showPage('marketView')"><i class="fa-solid fa-users"></i><span>නිලධාරීන්</span></button>
+        <button class="sticky-nav-item" id="mb-portalView" onclick="showPage('portalView')"><i class="fa-solid fa-user-circle"></i><span>ගොවි පියස</span></button>
     </div>
 
     <script>
@@ -406,22 +389,24 @@
         ];
 
         let CROP_DISEASES_DB = [
-            { id: "d1", type: "එළවළු", crop: "කැරට් / ගෝවා වර්ග", disease: "මුල් කුණුවීමේ දිලීර රෝගය", img: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?q=80&w=400", symptoms: "පහළ කොළ කහ පැහැ වී ශාකය සම්පූර්ණයෙන්ම පස මතට කඩා වැටීම සහ මුල් කුණුවීම.", cure: "පසෙහි ජලාපවහනය ක්‍රමවත් කරන්න. Mancozeb හෝ Copper Hydroxide අඩංගු දිලීර නාශකයක් පසට යොදන්න." },
-            { id: "d2", type: "එළවළු", crop: "තක්කාලි / මිරිස්", disease: "කොළ කොඩවීමේ වෛරස් රෝගය (Leaf Curl)", img: "https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?q=80&w=400", symptoms: "ශාකයේ පත්‍ර කුඩා වී උඩට රෝල් වීම, කහ පැහැ වීම සහ මල් හටගැනීම නතර වීම.", cure: "පැල මැක්කන් (Thrips) මර්දනයට Acetamiprid යොදන්න. ස්වභාවිකව සබන් දියර සහ දුම්කොළ තැම්බූ ජලය ඉසින්න." },
-            { id: "d3", type: "පළතුරු", crop: "පැපොල් / අඹ", disease: "පිටි මකුළු සහ අන්ත්‍රැක්නෝස් රෝගය", img: "https://images.unsplash.com/photo-1619546813926-a78fa6372cd2?q=80&w=400", symptoms: "පළතුරු ලාබාල අවධියේදීම කළු පැහැති ලප හටගෙන කුණුවීම සහ පත්‍ර යට සුදු පැහැති පිටි වැනි මකුළුවන් බෝවීම.", cure: "Sulfur අඩංගු දිලීර නාශක යොදන්න. කොහොඹ තෙල් භාවිතයෙන් සෝදා හරින්න." }
+            { id: "d1", type: "එළවළු", icon: "fa-solid fa-shrimp", crop: "කැරට් / ගෝවා වර්ග", disease: "මුල් කුණුවීමේ දිලීර ರෝගය", symptoms: "පහළ කොළ කහ පැහැ වී ශාකය සම්පූර්ණයෙන්ම පස මතට කඩා වැටීම සහ මුල් කුණුවීම.", cure: "පසෙහි ජලාපවහනය ක්‍රමවත් කරන්න. Mancozeb හෝ Copper Hydroxide අඩංගු දිලීර නාශකයක් පසට යොදන්න." },
+            { id: "d2", type: "එළවළු", icon: "fa-solid fa-leaf", crop: "තක්කාලි / මිරිස්", disease: "කොළ කොඩවීමේ වෛරස් රෝගය (Leaf Curl)", symptoms: "ශාකයේ පත්‍ර කුඩා වී උඩට රෝල් වීම, කහ පැහැ වීම සහ මල් හටගැනීම නතර වීම.", cure: "පැල මැක්කන් (Thrips) මර්දනයට Acetamiprid යොදන්න. ස්වභාවිකව සබන් දියර සහ දුම්කොළ තැම්බූ ජලය ඉසින්න." },
+            { id: "d3", type: "පළතුරු", icon: "fa-solid fa-apple-whole", crop: "පැපොල් / අඹ", disease: "පිටි මකුළු සහ අන්ත්‍රැක්නෝස් රෝගය", symptoms: "පළතුරු ලාබාල අවධියේදීම කළු පැහැති ලප හටගෙන කුණුවීම සහ පත්‍ර යට සුදු පැහැති පිටි වැනි මකුළුවන් බෝවීම.", cure: "Sulfur අඩංගු දිලීර නාශක යොදන්න. කොහොඹ තෙල් භාවිතයෙන් සෝදා හරින්න." }
         ];
 
         let FARMERS_REG_DATABASE = [];
         let loggedInUser = null;
         let isVaultAdmin = false;
 
-        // --- 🌟 APP SETUP & SPLASH SCREEN ---
+        // --- 🌟 FAST LOADING ENGINE ONSTART ---
         window.onload = function() {
             setTimeout(() => {
                 let splash = document.getElementById('splashScreen');
-                splash.style.opacity = "0";
-                setTimeout(() => splash.remove(), 500);
-            }, 2000);
+                if(splash) {
+                    splash.style.opacity = "0";
+                    setTimeout(() => splash.remove(), 300);
+                }
+            }, 1200); // Optimization: Fast fade dynamic
 
             if(localStorage.getItem('govi_p_prices')) GLOBAL_MARKET_PRICES_DB = JSON.parse(localStorage.getItem('govi_p_prices'));
             if(localStorage.getItem('govi_p_diseases')) CROP_DISEASES_DB = JSON.parse(localStorage.getItem('govi_p_diseases'));
@@ -451,7 +436,6 @@
             document.getElementById('authLoginBox').style.display = toRegister ? "none" : "block";
         }
 
-        // --- 🧑‍🌾 ADVANCED VALIDATION ENGINE WITH ✅ INDICATOR ---
         function validateField(input, regex) {
             let grp = input.parentElement;
             if (regex.test(input.value) && input.value.trim() !== "") {
@@ -474,19 +458,17 @@
             if (val.length >= 6) score++;
             if (/[A-Z]/.test(val) || /[a-z]/.test(val)) score++;
             if (/[0-9]/.test(val)) score++;
-            if (/[^A-Za-z0-9]/.test(val)) score++;
 
             let grp = input.parentElement;
             if(score >= 3) {
                 bar.style.width = "100%"; bar.style.background = "#2d6a4f"; text.innerText = "Strong Password ✅"; grp.classList.add('valid');
             } else if(score == 2) {
-                bar.style.width = "60%"; bar.style.background = var(--bright-orange); text.innerText = "Medium Strength"; grp.classList.remove('valid');
+                bar.style.width = "60%"; bar.style.background = "#fb8500"; text.innerText = "Medium Strength"; grp.classList.remove('valid');
             } else {
                 bar.style.width = "30%"; bar.style.background = "#d90429"; text.innerText = "Weak Password"; grp.classList.remove('valid');
             }
         }
 
-        // --- 🧑‍🌾 USER SYSTEM PROCESS LOGISTICS ---
         function processFarmerRegistration() {
             let name = document.getElementById('regName').value;
             let phone = document.getElementById('regPhone').value;
@@ -495,26 +477,23 @@
             let location = document.getElementById('regLoc').value;
             let password = document.getElementById('regPass').value;
 
-            if(!document.querySelectorAll('.input-group.valid').length >= 5) {
-                showToastNotification("කරුණාකර සියලුම කොටස් නිවැරදිව (✅ වැටෙන තුරු) පුරවන්න බොසා!");
+            if(name==="" || phone==="" || email==="") {
+                showToastNotification("කරුණාකර සියලුම කොටස් නිවැරදිව පුරවන්න බොසා!");
                 return;
             }
 
-            let newUser = { name, phone, email, birthday, location, password, avatar: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png" };
+            let newUser = { name, phone, email, birthday, location, password, avatar: "" };
             FARMERS_REG_DATABASE.push(newUser);
             localStorage.setItem('govi_p_farmers', JSON.stringify(FARMERS_REG_DATABASE));
             renderFarmersTable();
 
-            // Fire Timed Green Alert Box
             let alertBox = document.getElementById('greenAlertBanner');
             alertBox.classList.add('active');
             setTimeout(() => alertBox.classList.remove('active'), 5000);
 
-            // Directly login
             loggedInUser = newUser;
             localStorage.setItem('govi_p_session', JSON.stringify(loggedInUser));
             setupProfileDashboard();
-            showToastNotification("Registration Successful! Profile Created.");
         }
 
         function processFarmerLogin() {
@@ -526,7 +505,7 @@
                 loggedInUser = user;
                 localStorage.setItem('govi_p_session', JSON.stringify(loggedInUser));
                 setupProfileDashboard();
-                showToastNotification("සාර්ථකව ලොග් විය! ආයුබෝවන්.");
+                showToastNotification("සාර්ථකව ලොග් විය!");
             } else {
                 showToastNotification("ඊමේල් හෝ මුරපදය වැරදියි!");
             }
@@ -540,9 +519,19 @@
             document.getElementById('profDisplayName').innerText = loggedInUser.name;
             document.getElementById('profDisplayEmail').innerText = loggedInUser.email;
             document.getElementById('profDisplayPhone').innerText = loggedInUser.phone;
-            document.getElementById('profDisplayDate').innerText = loggedInUser.birthday;
-            document.getElementById('profDisplayLoc').innerText = loggedInUser.location;
-            document.getElementById('profileAvatarImg').src = loggedInUser.avatar;
+            document.getElementById('profDisplayDate').innerText = loggedInUser.birthday || '-';
+            document.getElementById('profDisplayLoc').innerText = loggedInUser.location || '-';
+            
+            let imgEl = document.getElementById('profileAvatarImg');
+            let fallbackIcon = document.getElementById('avatarIconFallback');
+            if(loggedInUser.avatar) {
+                imgEl.src = loggedInUser.avatar;
+                imgEl.style.display = "block";
+                fallbackIcon.style.display = "none";
+            } else {
+                imgEl.style.display = "none";
+                fallbackIcon.style.display = "block";
+            }
             document.getElementById('globalUserLabel').innerText = loggedInUser.name;
         }
 
@@ -551,16 +540,18 @@
                 let reader = new FileReader();
                 reader.onload = function(e) {
                     document.getElementById('profileAvatarImg').src = e.target.result;
+                    document.getElementById('profileAvatarImg').style.display = "block";
+                    document.getElementById('avatarIconFallback').style.display = "none";
+                    
                     loggedInUser.avatar = e.target.result;
                     localStorage.setItem('govi_p_session', JSON.stringify(loggedInUser));
                     
-                    // Update main DB cache
                     let idx = FARMERS_REG_DATABASE.findIndex(f => f.email === loggedInUser.email);
                     if(idx !== -1) {
                         FARMERS_REG_DATABASE[idx].avatar = e.target.result;
                         localStorage.setItem('govi_p_farmers', JSON.stringify(FARMERS_REG_DATABASE));
                     }
-                    showToastNotification("ප්‍රොෆයිල් පින්තූරය සාර්ථකව යාවත්කාලීන විය!");
+                    showToastNotification("පින්තූරය සුරැකිණි!");
                 }
                 reader.readAsDataURL(input.files[0]);
             }
@@ -572,10 +563,8 @@
             document.getElementById('farmerProfileBox').style.display = "none";
             toggleAuthForms(true);
             document.getElementById('globalUserLabel').innerText = "ගොවි පියස ලොගින්";
-            showToastNotification("ගිණුමෙන් සාර්ථකව ඉවත් විය.");
         }
 
-        // --- 🔍 ADVANCED SEARCH & INTERNET SIMULATED scraper ---
         function searchCropsAndInternet() {
             let val = document.getElementById('cropSearchInput').value.toLowerCase().trim();
             if(val === "") { renderCropEncyclopedia(); return; }
@@ -585,25 +574,21 @@
             if(matches.length > 0) {
                 renderCropEncyclopedia(matches);
             } else {
-                // Trigger Simulated Internet Scraping Loader
                 document.getElementById('searchLoaderModal').style.display = "flex";
                 setTimeout(() => {
                     document.getElementById('searchLoaderModal').style.display = "none";
                     let extUrl = `https://www.google.com/search?q=Sri+Lanka+agriculture+department+${encodeURIComponent(val)}+disease`;
-                    
                     let extMatch = {
-                        id: "ext", type: "Internet Search Result", crop: val,
-                        disease: "අන්තර්ජාලය හරහා සොයාගත් තොරතුරු ලින්ක් එක",
-                        img: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=400",
-                        symptoms: "අපගේ දත්ත පද්ධතියේ මෙම රෝගය නොමැත. නමුත් කෘෂිකර්ම දෙපාර්තමේන්තු වෙබ් අඩවියෙන් මේ පිළිබඳව දත්ත හමු විය.",
-                        cure: `<a href="${extUrl}" target="_blank" style="color:var(--bright-orange); font-weight:700; text-decoration:underline;">මෙහි ක්ලික් කර කෘෂිකර්ම දෙපාර්තමේන්තු ලිපිය කියවන්න (Click to View Article)</a>`
+                        id: "ext", type: "Internet Link", icon: "fa-solid fa-globe", crop: val,
+                        disease: "අන්තර්ජාල ප්‍රතිඵල ලින්ක් එක",
+                        symptoms: "අපගේ දත්ත පද්ධතියේ මෙම රෝගය ස්වදේශීයව නොමැත. නමුත් කෘෂිකර්ම ලිපි අන්තර්ජාලයෙන් හමු විය.",
+                        cure: `<a href="${extUrl}" target="_blank" style="color:var(--bright-orange); font-weight:700; text-decoration:underline;">මෙහි ක්ලික් කර ගූගල් ලිපිය බලන්න (Click to Search)</a>`
                     };
                     renderCropEncyclopedia([extMatch]);
-                }, 2500);
+                }, 1500);
             }
         }
 
-        // --- REALTIME COMPREHENSIVE PRICE & CONTACT FILTERS ---
         function processMarketAndCategoryFilter() {
             let market = document.getElementById('marketSelector').value;
             let category = document.getElementById('categorySelector').value;
@@ -636,13 +621,13 @@
                     <div class="disease-profile-card">
                         <div class="disease-img-frame">
                             <span class="crop-type-badge">${c.type}</span>
-                            <img src="${c.img}">
+                            <i class="${c.icon || 'fa-solid fa-seedling'}"></i>
                         </div>
                         <div class="disease-details">
                             <h3>${c.disease}</h3>
                             <p style='font-size:13px; margin-bottom:4px;'><strong>බෝගය:</strong> ${c.crop}</p>
                             <p style='font-size:13px; margin-bottom:4px;'><strong>ලක්ෂණ:</strong> ${c.symptoms}</p>
-                            <p style='font-size:13px; background:#f9f9f9; padding:8px; border-radius:8px; border:1px solid #eee; margin-top:8px;'><strong>ප්‍රතිකාර:</strong> ${c.cure}</p>
+                            <p style='font-size:13px; background:#f9f9f9; padding:8px; border-radius:8px; margin-top:8px;'><strong>ප්‍රතිකාර:</strong> ${c.cure}</p>
                         </div>
                     </div>`;
             });
@@ -658,7 +643,7 @@
                         <p><strong>තනතුර:</strong> ${o.role}</p>
                         <p><i class="fa-solid fa-phone"></i> ස්ථාවර: ${o.phone}</p>
                         <p><i class="fa-solid fa-mobile-screen"></i> ජංගම: ${o.mobile}</p>
-                        <a href="tel:${o.mobile}" class="call-btn"><i class="fa-solid fa-phone-volume"></i> ඇමතුමක් ගන්න</a>
+                        <a href="tel:${o.mobile}" class="call-btn"><i class="fa-solid fa-phone-volume"></i> Call Now</a>
                     </div>`;
             });
         }
@@ -671,14 +656,12 @@
         }
 
         function exportFarmersToCSV() {
-            if(FARMERS_REG_DATABASE.length===0) { showToastNotification("Database is Empty!"); return; }
+            if(FARMERS_REG_DATABASE.length===0) return;
             let csv = "data:text/csv;charset=utf-8,Name,Email,Phone,Location\n" + FARMERS_REG_DATABASE.map(e => `"${e.name}","${e.email}","${e.phone}","${e.location}"`).join("\n");
-            let link = document.createElement("a"); link.setAttribute("href", encodeURI(csv)); link.setAttribute("download", "Govi_Palama_Farmers_DB.csv");
+            let link = document.createElement("a"); link.setAttribute("href", encodeURI(csv)); link.setAttribute("download", "Farmers_DB.csv");
             document.body.appendChild(link); link.click(); document.body.removeChild(link);
-            showToastNotification("Excel/CSV Database exported to Laptop Successfully!");
         }
 
-        // --- 🌐 MULTILINGUAL ENGINE SWITCHER ---
         function switchSystemLanguage() {
             let lang = document.getElementById('languageSelector').value;
             document.querySelectorAll('[data-' + lang + ']').forEach(el => {
@@ -686,28 +669,24 @@
             });
         }
 
-        // --- 🔐 SECURE ADMIN CORE PRIVILEGES ---
         function accessVaultAdminMode() {
-            let pass = prompt("🔐 SECURITY PASSPHRASE ENTRY:");
+            let pass = prompt("🔐 ADMIN PASSPHRASE:");
             if(pass === "goviadmin123") {
                 isVaultAdmin = true;
                 document.getElementById('secretAdminHub').classList.add('active');
-                document.getElementById('adminAddDiseaseBox').style.display = "block";
                 document.getElementById('tb-farmersAdminView').style.display = "block";
                 processMarketAndCategoryFilter();
-                showToastNotification("🔓 SYSTEM DECRYPTION SUCCESSFUL: Vault Admin Active.");
-            } else { showToastNotification("ACCESS DENIED."); }
+            }
         }
         function lockVaultMode() { isVaultAdmin = false; location.reload(); }
         function saveSystemDatabase() {
             localStorage.setItem('govi_p_prices', JSON.stringify(GLOBAL_MARKET_PRICES_DB));
-            localStorage.setItem('govi_p_diseases', JSON.stringify(CROP_DISEASES_DB));
             localStorage.setItem('govi_p_farmers', JSON.stringify(FARMERS_REG_DATABASE));
-            showToastNotification("All core matrices successfully cached to infrastructure!");
+            showToastNotification("Saved Successfully!");
         }
         function showToastNotification(m) {
             let s = document.getElementById('toastStack'); let t = document.createElement('div'); t.className = "toast-notification"; t.innerText = m; s.appendChild(t);
-            setTimeout(() => { t.style.opacity = "0"; setTimeout(() => t.remove(), 400); }, 3000);
+            setTimeout(() => { t.style.opacity = "0"; setTimeout(() => t.remove(), 300); }, 2000);
         }
     </script>
 </body>
